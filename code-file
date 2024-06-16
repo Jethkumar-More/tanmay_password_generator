@@ -35,6 +35,8 @@ else:
                         password_list += random.choice(numbers)
                     for i in range(0,e):
                         password_list += random.choice(symbols)
-                    for i in range(0,len(password_list) + 1):
-                        password += random.choice(password_list)
-                    print(password)
+                    random.shuffle(password_list)
+                    for i in password_list:
+                            password += i
+
+                print(password)
