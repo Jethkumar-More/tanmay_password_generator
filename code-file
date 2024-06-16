@@ -1,0 +1,40 @@
+import random
+upper_case_letters = ['A','B' 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+lower_case_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ';', " : "," ' " , '"', ',', '.', '<', '>', '/', '?', '`', '~']
+
+password_list = []
+password = ""
+print("Hey !!\nWelcome to our password generator!!")
+a = int(input("How many characters password you wanna chose?\nchoose 8 or 16 char? "))
+if a < 8 or a > 16:
+    print("You chose an invalid length of password!!")
+else:
+    b = int(input("How many Upper case letters you want in your password?\n"))
+    if b < 0 or b > a  :
+        print("You chose an invalid length of Upper case letters !!")
+    else:
+        c = int(input("How many lower case letters you want in your password?\n"))
+        if (b + c) < 0 or (b + c) > a:
+            print("You chose an invalid length of Lower case letters !!")
+        else:
+            d = int(input("How many numbers you want in your password?\n"))
+            if (b+c+d) < 0 or(b+c+d) > a:
+                print("You chose an invalid length of numbers !!")
+            else:
+                e = int(input("How many symbols you want in your password?\n"))
+                if (b+c+d+e) < 0 or (b+c+d+e) < a or (b+c+d+e) > a:
+                    print("You chose an invalid length of symbols !!")
+                else:
+                    for i in range(0,b):
+                        password_list += random.choice(upper_case_letters)
+                    for i in range(0,c):
+                        password_list += random.choice(lower_case_letters)
+                    for i in range(0,d):
+                        password_list += random.choice(numbers)
+                    for i in range(0,e):
+                        password_list += random.choice(symbols)
+                    for i in range(0,len(password_list) + 1):
+                        password += random.choice(password_list)
+                    print(password)
